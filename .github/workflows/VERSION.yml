@@ -1,0 +1,45 @@
+name: GENERATE VERSION
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo: 
+        type: string
+        description: Repositório alvo.
+        required: true
+      version: 
+        type: string
+        description: Versão do repositorio.
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: AutoModality/action-clean@v1
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
+          
+      - name: Update version in geomais/version repo
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          jq --arg repo "${{ github.event.inputs.repo }}" --arg version "${{ github.event.inputs.version }}" '.[$repo].version = $version' versions.json > versions.json.tmp && mv versions.json.tmp versions.json
+
+          git add versions.json
+          git commit -m "Update ${{ github.event.inputs.repo }} version to ${{ github.event.inputs.version }}" || echo "No changes to commit"
+          git push
