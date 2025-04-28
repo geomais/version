@@ -30,15 +30,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GEOMAIS_BOT }}
           ref: main
-      
-      - name: Setup GitHub SSH
-        uses: MrSquaare/ssh-setup-action@v2
-        with:
-          host: github.com
-          private-key: ${{ secrets.SSH_PRIVATE_KEY_GITHUB }}
-          private-key-name: github
 
       - name: Update version in geomais/version repo
         run: |
