@@ -6,7 +6,7 @@
     "version": "2.18.4"
   },
   "geomais-export-api": {
-    "version": "2.18.0"
+    "version": "refs/tags/2.19.0"
   },
   "geomais-vector-tiles-server": {
     "version": "2.18.1"
