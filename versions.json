@@ -16,5 +16,8 @@
   },
   "geomais-back-end": {
     "version": "2.18.1"
+  },
+  "geomais-frontend-monorepo": {
+    "version": "refs/tags/2.19.0"
   }
 }
