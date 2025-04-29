@@ -1,20 +1,20 @@
 {
   "geomais-node-api": {
-    "version": "refs/tags/2.19.0"
+    "version": "2.19.0"
   },
   "geomais-frontend": {
-    "version": "2.18.4"
+    "version": "2.19.0"
   },
   "geomais-export-api": {
-    "version": "refs/tags/2.19.0"
+    "version": "2.19.0"
   },
   "geomais-vector-tiles-server": {
-    "version": "refs/tags/2.19.0"
+    "version": "2.19.0"
   },
   "geomais-conversor": {
-    "version": "refs/tags/2.19.0"
+    "version": "2.19.0"
   },
   "geomais-back-end": {
-    "version": "refs/tags/2.19.0"
+    "version": "2.19.0"
   }
 }
